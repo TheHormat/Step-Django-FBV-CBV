@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Axtarış: {{ word }}{% endblock %}
+
+{% block content %}
+  {# [EV 10] bonus — hələlik söz URL-də yazılır: /search/python/. Axtarış qutusu Dərs 13-də #}
+  <h1>“{{ word }}” <small>({{ posts|length }} nəticə)</small></h1>
+
+  <div class="grid">
+    {% for post in posts %}
+      {% include "blog/_post_card.html" %}
+    {% empty %}
+      <p class="empty">Heç nə tapılmadı.</p>
+    {% endfor %}
+  </div>
+{% endblock %}

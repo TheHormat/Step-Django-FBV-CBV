@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Postlar{% endblock %}
+
+{% block content %}
+  {# [DƏRS 8] #}
+  <h1>Bütün postlar <small>({{ posts|length }})</small></h1>
+  <div class="grid">
+    {% for post in posts %}
+    {% include "blog/_post_card.html" %}
+    {% empty %}
+    <p class="empty">Hələ post yoxdur.</p>
+    {% endfor %}
+  </div>
+  {% include "blog/_pagination.html" %}
+{% endblock %}
